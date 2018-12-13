@@ -34,3 +34,15 @@ vignettes/*.pdf
 
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
+.Rproj.user
+
+# LaTeX aux files
+*.tex
+*.log
+*.nav
+*.synctex.gz
+*.snm
+*.toc
+*.vrb
+
+.DS_Store

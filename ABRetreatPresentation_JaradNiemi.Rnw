@@ -1,0 +1,191 @@
+\documentclass[handout]{beamer}
+
+\usepackage{hyperref}
+
+\usetheme{AnnArbor}
+\usecolortheme{beaver}
+
+\usefonttheme[onlymath]{serif} % uncomment for article style math
+
+\setlength{\unitlength}{\textwidth}  % measure in textwidths
+\usepackage[normalem]{ulem}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.}
+\setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.}
+\setkeys{Gin}{width=0.6\textwidth}
+
+
+<<options, results='hide', echo=FALSE, purl=FALSE>>=
+opts_chunk$set(comment=NA, 
+               fig.width=7, fig.height=5, 
+               size='small', 
+               out.width='0.8\\textwidth', 
+               fig.align='center', 
+               message=FALSE,
+               echo=FALSE,
+               cache=FALSE)
+options(width=60)
+@
+
+\institute{Iowa State University}
+\author{Jarad Niemi}
+\title{Data management for A/B Teams}
+\date{\today}
+
+\begin{document}
+
+\frame{\maketitle}
+
+\begin{frame}
+\frametitle{Outline}
+
+\begin{itemize}
+\item Data horror stories
+\item Reasonable data management practices
+\item STRIPS specific information
+\end{itemize}
+\end{frame}
+
+
+
+\section{Data horror stores}
+\subsection{Duke cancer clinical trials}
+\begin{frame}
+\frametitle{Duke cancer clinical trials}
+
+\url{https://www.nature.com/articles/nm1107-1276b}
+
+\pause
+
+Issues with data management:
+\begin{enumerate}
+\item ``The list of genes ... are wrong because of an `off-by-one' indexing error.'' \pause
+\item ``suggesting that most labels are reversed. If the labels are reversed, the model 
+suggests administering the drug only to patients it would not benefit.''
+\end{enumerate}
+
+\pause
+
+\url{https://bioinformatics.mdanderson.org/Supplements/ReproRsch-Chemo/}
+
+\end{frame}
+
+
+\section{Reasonable data management practices}
+\begin{frame}
+\frametitle{Principles}
+
+My (current) guiding principles
+
+\begin{itemize}[<+->]
+\item Be consistent
+\item Have ownership
+\item Store each piece of data only once
+\item Don't touch the raw data
+\item Leave as much of the work as possible to the computer
+\end{itemize}
+\end{frame}
+
+
+\section{STRIPS}
+\subsection{Overview}
+\begin{frame}
+\frametitle{STRIPS Overview}
+
+Science-based Trials of Rowcrops Integrated with Prairie Strips (STRIPS) 
+\pause
+is the idea that we can create enormous benefits if small amount of rowcrop are
+converted to prairie. 
+
+\vspace{0.1in} \pause
+
+\begin{itemize}
+\item STRIPS1: 4 treatments at Neal Smith National Wildlife Refuge
+\item STRIPS2: 2 treatments at commercial farms \pause
+\end{itemize}
+
+\pause
+
+\url{https://www.nrem.iastate.edu/research/STRIPS/}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{STRIPS1 outcomes}
+\begin{center}
+\includegraphics{figs/pnas_outcomes}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\includegraphics{figs/blocks}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\includegraphics{figs/sites}
+\end{center}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{STRIPS yield}
+
+Where are the raw STRIPS1 yield data?
+
+\vspace{0.1in} \pause
+
+\begin{itemize}
+\item Who is the owner of the STRIPS1 yield data?
+\item What are the files stored?
+\item What is the file organization?
+\end{itemize}
+
+\vspace{0.1in} \pause
+
+This is my \alert{horror story}.
+
+\end{frame}
+
+
+
+\section{STRIPS2 specific information}
+\begin{frame}[fragile]
+\frametitle{STRIPS2 sites}
+
+Attempting to maintain farmer anonymity: \pause
+\begin{itemize}
+\item We use 3-letter abbreviations:
+
+<<echo=FALSE>>=
+sites <- read.csv("sites.csv")
+as.character(sites$siteID)
+@
+
+\pause
+
+\item We keep spatial information on a private server and spatially anonymize
+reported data.
+\end{itemize}
+
+\vspace{0.1in} \pause 
+
+Archive data in STRIPS Box folder under STRIPS2...?
+
+\end{frame}
+
+
+\end{document}
