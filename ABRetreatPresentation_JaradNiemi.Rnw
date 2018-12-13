@@ -32,6 +32,7 @@ options(width=60)
 \institute{Iowa State University}
 \author{Jarad Niemi}
 \title{Data management for A/B Teams}
+\subtitle{\url{https://github.com/jarad/ABRetreatPresentation}}
 \date{\today}
 
 \begin{document}
